@@ -3,7 +3,10 @@
 name:                gist
 version:             0.1
 synopsis:            A reliable command-line client for gist.github.com
--- description:         
+description:         
+  A reliable command-line client for gist.github.com. It pastes a single
+  file or standard input to gist.github.com as a public gist. Does not
+  support authentication and does not depend on the github package (yet).
 homepage:            http://github.com/simonmichael/gist
 license:             GPL-3
 license-file:        LICENSE
