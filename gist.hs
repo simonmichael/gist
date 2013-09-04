@@ -1,7 +1,7 @@
 {-# LANGUAGE OverloadedStrings, RecordWildCards #-}
 {-
-gist.hs - a reliable command-line client for gist.github.com
-(c) 2012 Simon Michael <simon@joyful.com>
+gist.hs - a command-line client for gist.github.com that works.
+(c) 2012-2013 Simon Michael <simon@joyful.com>
 -}
 
 import Control.Applicative ((<$>), empty)
@@ -56,7 +56,9 @@ paste description filename content = do
     withManager $ \mgr -> do
       httpLbs req{method = "POST", requestBody = RequestBodyLBS $ encode paste} mgr
 
-report (Response status _ _ body) = do
-  putStrLn $ show status
-  let mresponse = decode body
+report rsp = do
+  putStrLn $ show $ responseStatus rsp
+  let
+    body = responseBody rsp
+    mresponse = decode body
   putStrLn $ maybe ("Unknown response:\n" ++ (BL.unpack body)) pasteResponseUrl mresponse

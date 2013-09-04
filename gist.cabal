@@ -1,12 +1,14 @@
 -- cf http://haskell.org/cabal/users-guide/
 
 name:                gist
-version:             0.1
-synopsis:            A reliable command-line client for gist.github.com
+version:             0.1.98
+synopsis:            A simple command-line client for gist.github.com that just works.
 description:         
-  A reliable command-line client for gist.github.com. It pastes a single
-  file or standard input to gist.github.com as a public gist. Does not
-  support authentication and does not depend on the github package (yet).
+  A simple command-line client for gist.github.com that just works.
+  It pastes a single file or the standard input to gist.github.com, as
+  a public gist. It does not support authentication and does not
+  depend on the github package (yet).
+
 homepage:            http://github.com/simonmichael/gist
 license:             GPL-3
 license-file:        LICENSE
@@ -19,9 +21,9 @@ cabal-version:       >=1.8
 
 executable gist
   main-is:             gist.hs
-  build-depends:       base ==4.5.*
-                      ,aeson >= 0.6 && < 0.7
-                      ,bytestring >= 0.9 && < 0.10
-                      ,conduit >= 0.4 && < 0.5
-                      ,http-conduit >= 1.4 && < 1.5
-                      ,text >= 0.11 && < 0.12
+  build-depends:       base
+                      ,aeson
+                      ,bytestring
+                      ,conduit
+                      ,http-conduit
+                      ,text
