@@ -1,10 +1,22 @@
-{-# LANGUAGE OverloadedStrings, RecordWildCards #-}
-{-
-gist.hs - a command-line client for gist.github.com that works.
-(c) 2012-2013 Simon Michael <simon@joyful.com>
+#!/usr/bin/env stack
+{- stack runghc --verbosity info
+  --package aeson
+  --package bytestring
+  --package conduit
+  --package http-conduit
+  --package resourcet
+  --package text
 -}
 
+{-
+gist.hs - a command-line client for gist.github.com that works.
+(c) 2012-2017 Simon Michael <simon@joyful.com>
+-}
+
+{-# LANGUAGE OverloadedStrings, RecordWildCards, FlexibleContexts #-}
+
 import Control.Applicative ((<$>), empty)
+import Control.Monad.Trans.Resource
 import Data.Aeson
 import qualified Data.ByteString.Lazy.Char8 as BL
 import Data.Conduit
@@ -13,7 +25,7 @@ import Network.HTTP.Conduit
 import System.IO
 import System.Environment
 
-version = "0.1"
+version = "0.1.98"
 
 data Paste = Paste {
   pasteDescription :: T.Text,

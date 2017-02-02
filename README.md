@@ -1,3 +1,5 @@
-A reliable command-line client for gist.github.com. It pastes a single
-file or standard input to gist.github.com as a public gist. Does not
-support authentication and does not depend on the github package (yet).
+This wants to be a reliable command-line client for gist.github.com,
+because all the others failed somehow, but isn't yet.
+
+It pastes a single file or standard input to gist.github.com as a public gist. 
+It does not support authentication and does not depend on the github package (yet).
